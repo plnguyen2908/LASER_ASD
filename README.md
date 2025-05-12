@@ -14,7 +14,7 @@
 Start from building the environment
 
 ```
-conda env create -f landmark_loconet_environmet.yml
+conda env create -f landmark_loconet_environment.yml
 conda activate landmark_loconet
 ```
 
