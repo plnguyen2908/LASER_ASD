@@ -8,28 +8,33 @@
 | --------------- | --------------------------------------------------------------------------------------------- | ----------------- |
 | LoCoNet + LASER | [Checkpoint](https://drive.google.com/file/d/1IrntlKqzw5EYAVbyDupr5tk-H3q9kkoW/view?usp=sharing) | AVA-Activespeaker |
 | TalkNCE + LASER | [Checkpoint](https://drive.google.com/file/d/1N8nFVybKXL7NFzJHMfo9x8FjJkUzEUc_/view?usp=sharing) | AVA-Activespeaker |
+| TalkNet + LASER | [Checkpoint](https://drive.google.com/file/d/1-_9-_EWOVYerSmU7-XMtYLPwespfLuPW/view?usp=sharing) | AVA-Activespeaker |
+
 
 ### Dependencies
 
-Start from building the environment
+
+For LoCoNet environment, run the following command:
 
 ```
-conda env create -f landmark_loconet_environment.yml
+conda env create -f LoCoNet/landmark_loconet_environment.yml
 conda activate landmark_loconet
 ```
 
-### Data preparation
+For TalkNet environment, read the requirement.txt in TalkNet folder.
+
+### Training Data preparation
 
 We follow TalkNet's data preparation script to download and prepare the AVA dataset.
 
 ```
-python train.py --dataPathAVA AVADataPath --download 
+python LoCoNet/train.py --dataPathAVA AVADataPath --download 
 ```
 
 Or equivalently, if you cannot run the above file, you can run
 
 ```
-python downloadAVA.py
+python LoCoNet/downloadAVA.py
 ```
 
 , but you need to manually modify the savePath in that file
@@ -40,6 +45,16 @@ After AVA dataset is downloaded, please change the DATA.dataPathAVA entry in the
 
 For Talkies and ASW, please refer to https://github.com/fuankarion/maas and https://github.com/clovaai/lookwhostalking respectively. Please make sure that the folder structure and csv file of the 2 datasets match AVA so that the all files can be run flawlessly.
 
+### Download LASER-bench
+
+You can run the file LASER_bench_download.py to download LASER_bench. 
+
+```
+python LASER_bench_download.py --save_path /path/to/data
+```
+
+The code will download 2 folders: noise_0 and noise_1 which stand for the subset of low noise and high noise in AVA format.
+
 ### Creating unsynchronized Dataset
 
 Please modify the dataset path in shift_audio.py and then run the file to create the shifted audio version.
@@ -47,15 +62,15 @@ Please modify the dataset path in shift_audio.py and then run the file to create
 ### Training script for LoCoNet
 
 ```
-python -W ignore::UserWarning train.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
+python -W ignore::UserWarning LoCoNet/train.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
 ```
 
-### Training script for LASER
+### Training script for LASER on LoCoNet
 
 Please modify hyperparameters in configs/multi.yaml accordingly before training
 
 ```
-python -W ignore::UserWarning train_landmark_loconet.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
+python -W ignore::UserWarning LoCoNet/train_landmark_loconet.py --cfg configs/multi.yaml OUTPUT_DIR <output directory>
 ```
 
 ### Creating landmark for the dataset
@@ -72,30 +87,30 @@ Please modify the path to model's weight, model's hyperparameters, and dataPath 
 
 #### Synchronized dataset
 
-For our model, please run:
+For LASER on LoCoNet, please run:
 
 ```
-python test_mulicard_landmark.py --cfg configs/multi.yaml
+python LoCoNet/test_mulicard_landmark.py --cfg configs/multi.yaml
 ```
 
 For LoCoNet, please run:
 
 ```
-python test_mulicard.py --cfg configs/multi.yaml
+python LoCoNet/test_mulicard.py --cfg configs/multi.yaml
 ```
 
 #### Unsynchronized dataset
 
-For our model, please run:
+For LASER on LoCoNet, please run:
 
 ```
-python test_landmark_loconet.py --cfg configs/multi.yaml
+python LoCoNet/test_landmark_loconet.py --cfg configs/multi.yaml
 ```
 
 For LoCoNet, please run:
 
 ```
-python test.py --cfg configs/multi.yaml
+python LoCoNet/test.py --cfg configs/multi.yaml
 ```
 
 After running the evaluation file, please run
