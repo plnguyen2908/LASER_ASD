@@ -1,6 +1,6 @@
 ## LASER: Lip Landmark Assisted Speaker Detection for Robustness
 
-### [Project Page](https://plnguyen2908.github.io/LASER-ASD-project-page/) | [arXiv](https://arxiv.org/abs/2501.11899v1) | [Citation](#Citation)
+### [LASER-bench](https://huggingface.co/datasets/plnguyen2908/LASER-bench/tree/main) | [Project Page](https://plnguyen2908.github.io/LASER-ASD-project-page/) | [arXiv](https://arxiv.org/abs/2501.11899v1) | [Citation](#Citation)
 
 [Le Thien Phuc Nguyen*](https://plnguyen2908.github.io/), [Zhuoran Yu*](https://www.zhuoranyu.com/), [Yong Jae Lee](https://pages.cs.wisc.edu/~yongjaelee/) (* *Equal Contribution*)
 
@@ -149,3 +149,4 @@ Please cite the following if our paper or code is helpful to your research.
 The code base of this project is studied from [TalkNet](https://github.com/TaoRuijie/TalkNet-ASD) and [LoCoNet](https://github.com/SJTUwxz/LoCoNet_ASD/tree/main) which is a very easy-to-use ASD pipeline.
 
 The contrative loss function is obtained through communication with the author of [TalkNCE](https://arxiv.org/pdf/2309.12306).
+
