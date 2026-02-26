@@ -148,14 +148,13 @@ Here are some instructions in using the code:
 Please cite the following if our paper or code is helpful to your research.
 
 ```
-@misc{nguyen2025laserliplandmarkassisted,
-      title={LASER: Lip Landmark Assisted Speaker Detection for Robustness}, 
-      author={Le Thien Phuc Nguyen and Zhuoran Yu and Yong Jae Lee},
-      year={2025},
-      eprint={2501.11899},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2501.11899}, 
+@InProceedings{Nguyen_2026_WACV,
+    author    = {Nguyen, Le Thien Phuc and Yu, Zhuoran and Lee, Yong Jae},
+    title     = {LASER: Lip Landmark Assisted Speaker Detection for Robustness},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {March},
+    year      = {2026},
+    pages     = {7291-7300}
 }
 ```
 
@@ -164,5 +163,6 @@ Please cite the following if our paper or code is helpful to your research.
 The code base of this project is studied from [TalkNet](https://github.com/TaoRuijie/TalkNet-ASD) and [LoCoNet](https://github.com/SJTUwxz/LoCoNet_ASD/tree/main) which is a very easy-to-use ASD pipeline.
 
 The contrative loss function is obtained through communication with the author of [TalkNCE](https://arxiv.org/pdf/2309.12306).
+
 
 
